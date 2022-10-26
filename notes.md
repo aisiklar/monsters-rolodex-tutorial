@@ -31,3 +31,7 @@ API URL: https://jsonplaceholder.typicode.com/users
 2. render()
 3. componendDidMount()
 4. if there is a setState(), then the render() is re-rendered
+
+### 4) onChange( (event)=> {....} ) fonksiyonunun dışarı taşınması
+eğer yukarıdaki fonksiyon, render() içerisinde verilirse, her rendering sırasında bu fonksiyon initialize edileceğinden performansta düşme olabilir. (özellikle çok fonksiyon varsa)
+Dolayısıyla bu tip fonksiyonları render() dışına alıyoruz.

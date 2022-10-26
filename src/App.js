@@ -18,24 +18,29 @@ class App extends Component {
     console.log('componendDidMount() - 3rd item that is executed')
     fetch('https://jsonplaceholder.typicode.com/users').then((response) => response.json()).then((users) => {
       console.log('users', users);
-      this.setState(() => {return {monsters: users}});
+      this.setState(() => { return { monsters: users } });
       return this.setState(() => { return { filteredMonsters: users } }, () => { console.log(`this.state:`, this.state) })
     })
   }
 
-  render() {
-    console.log('render() - 2nd item that is executed')
+  onSearchChange = (event) => {
+    let monsters = this.state.monsters;
+    let filteredMonsters = monsters.filter((monster) => monster.name.toLowerCase().includes(event.target.value.toLowerCase()));
+    console.log(`filteredMonsters:`, filteredMonsters);
+    this.setState(() => {
+      return {
+        filteredMonsters: filteredMonsters
+      }
 
-    return (
-      <div className='App'>
-        <input className="#" type="search" placeholder="search monster" onChange={
-          (event) => {
-            let monsters = this.state.monsters;
-            let filteredMonsters = monsters.filter((monster) => monster.name.toLowerCase().includes(event.target.value.toLowerCase()));
-            console.log(`filteredMonsters:`, filteredMonsters);     
-            this.setState(() => {return {
-            filteredMonsters: filteredMonsters
-          }}, () => {console.log('filteredMonsters: ', this.state.filteredMonsters)})
+
+      render() {
+        console.log('render() - 2nd item that is executed')
+
+
+
+        return (
+          <div className='App'>
+            <input className="#" type="search" placeholder="search monster" onChange={this.onSearchChange}, () => {console.log('filteredMonsters: ', this.state.filteredMonsters)})
           }
         } ></input>
 
