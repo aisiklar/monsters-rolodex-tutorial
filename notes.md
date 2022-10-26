@@ -32,6 +32,20 @@ API URL: https://jsonplaceholder.typicode.com/users
 3. componendDidMount()
 4. if there is a setState(), then the render() is re-rendered
 
-### 4) onChange( (event)=> {....} ) fonksiyonunun dışarı taşınması
+### 4) onChange( (event)=> {....} ) fonksiyonunun dışarı taşınması (optimizasyon-1)
 eğer yukarıdaki fonksiyon, render() içerisinde verilirse, her rendering sırasında bu fonksiyon initialize edileceğinden performansta düşme olabilir. (özellikle çok fonksiyon varsa)
 Dolayısıyla bu tip fonksiyonları render() dışına alıyoruz...
+
+
+### 5) tutorial'dan sapılan / farklılaşan kısımlar
+
+* L42: tutorial'da searchfield'a yazılan yazı state olarak tanımlanmış. Ben, filteredMonsters'ı tanımladım.
+
+### 6) Diğer optimizasyon
+
+* her yerde this.state.... yazmamak için destructuring yapıldı (render() fonksiyonun içinde ama return() dışında)
+
+    `const { onSearchChange } = this;`
+
+bende ihtiyaç olmadı (benim kodum tutorial'dan biraz farklı olduğu için) ama aşağıdaki de olabilir.
+    `const { monsters, filteredMonsters } = this.state;`
