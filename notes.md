@@ -34,4 +34,4 @@ API URL: https://jsonplaceholder.typicode.com/users
 
 ### 4) onChange( (event)=> {....} ) fonksiyonunun dışarı taşınması
 eğer yukarıdaki fonksiyon, render() içerisinde verilirse, her rendering sırasında bu fonksiyon initialize edileceğinden performansta düşme olabilir. (özellikle çok fonksiyon varsa)
-Dolayısıyla bu tip fonksiyonları render() dışına alıyoruz.
+Dolayısıyla bu tip fonksiyonları render() dışına alıyoruz...
