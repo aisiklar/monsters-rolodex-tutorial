@@ -39,7 +39,7 @@ Dolayısıyla bu tip fonksiyonları render() dışına alıyoruz...
 
 ### 5) tutorial'dan sapılan / farklılaşan kısımlar
 
-* L42: tutorial'da searchfield'a yazılan yazı state olarak tanımlanmış. Ben, filteredMonsters'ı tanımladım.
+* L42: tutorial'da searchfield'a yazılan "input text" state olarak tanımlanmış. Ben, filteredMonsters'ı tanımladım.
 
 ### 6) Diğer optimizasyon
 

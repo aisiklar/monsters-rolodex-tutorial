@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Component } from "react";
+import CardList from "./components/card-list/card-list.component";
 
 class App extends Component {
   constructor() {
@@ -46,7 +47,9 @@ class App extends Component {
     });
   };
 
-  render() {        
+  render() {     
+    let filteredMonsters = this.state.filteredMonsters;
+    
     console.log("render() - 2nd item that is executed");
 
     // destructuring for optimization
@@ -61,14 +64,7 @@ class App extends Component {
           placeholder="search monster"
           onChange={onSearchChange}
         ></input>
-
-        {this.state.filteredMonsters.map((monster) => {
-          return (
-            <div key={monster.id}>
-              <h1>{monster.name}</h1>
-            </div>
-          );
-        })}
+        <CardList monsters = {filteredMonsters}></CardList>
       </div>
     );
   }
