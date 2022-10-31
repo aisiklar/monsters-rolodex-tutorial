@@ -49,3 +49,13 @@ Dolayısıyla bu tip fonksiyonları render() dışına alıyoruz...
 
 bende ihtiyaç olmadı (benim kodum tutorial'dan biraz farklı olduğu için) ama aşağıdaki de olabilir.
     `const { monsters, filteredMonsters } = this.state;`
+
+
+### re-rendering of components
+* occurs on 2 conditions:
+  * when setState() is called
+  * when props are updated
+
+### robots api
+https://robohash.org/
+

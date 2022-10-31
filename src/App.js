@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Component } from "react";
 import CardList from "./components/card-list/card-list.component";
+import SearchBox from "./components/search-box/search-box.component";
 
 class App extends Component {
   constructor() {
@@ -47,9 +48,9 @@ class App extends Component {
     });
   };
 
-  render() {     
+  render() {
     let filteredMonsters = this.state.filteredMonsters;
-    
+
     console.log("render() - 2nd item that is executed");
 
     // destructuring for optimization
@@ -58,13 +59,12 @@ class App extends Component {
 
     return (
       <div className="App">
-        <input
-          className="#"
-          type="search"
-          placeholder="search monster"
-          onChange={onSearchChange}
-        ></input>
-        <CardList monsters = {filteredMonsters}></CardList>
+        <SearchBox
+          onChangeHandler={onSearchChange}
+          placeholder="Search Monster"
+          className = "search-box"
+        ></SearchBox>
+        <CardList monsters={filteredMonsters}></CardList>
       </div>
     );
   }
