@@ -51,7 +51,8 @@ bende ihtiyaç olmadı (benim kodum tutorial'dan biraz farklı olduğu için) am
     `const { monsters, filteredMonsters } = this.state;`
 
 
-### re-rendering of components
+### re-rendering of components (in Class components) 
+* rendering occurs for all under the render() in class components
 * occurs on 2 conditions:
   * when setState() is called
   * when props are updated
@@ -59,3 +60,16 @@ bende ihtiyaç olmadı (benim kodum tutorial'dan biraz farklı olduğu için) am
 ### robots api
 https://robohash.org/
 
+
+### lifecycle methods for class components
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+### pure vs impure funcions in react
+* in react, when we create functional components, these are moslty impure (especially when we use hooks etc.)
+
+
+### re-rendering of components (in function components)
+* rendering occurs for the whole function (i.e. const App = () => {....} )
+* re-rendering occurs in 2 conditions (similar to class components)
+  * props change
+  * state changes
