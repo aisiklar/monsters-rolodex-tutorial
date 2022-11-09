@@ -11,6 +11,7 @@ import SearchBox from "./components/search-box/search-box.component";
 const App = () => {
   
   const [monsters, setMonster] = useState([]);
+  const [filteredMonsters, setFilteredMonsters] = useState([]);
 
   console.log('App started, monsters: ', monsters);
 
@@ -24,7 +25,7 @@ const App = () => {
     console.log('monsters: ', monsters)
   }
 
-useEffect( () => {fetchUser()}, []);
+useEffect( () => { fetchUser() }, []);
   
   // call the fetch function if monsters is empty
   // since useEffect() is used, commenting the following script
@@ -35,15 +36,18 @@ useEffect( () => {fetchUser()}, []);
  
  
 
-/* 
-  const onSearchChange = () => {
-
-  }
- */
+ const onSearchChange = (event) => {
+     let filteredMonsters = monsters.filter((monster) =>
+      monster.name.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    console.log(`filteredMonsters:`, filteredMonsters);
+    setFilteredMonsters(filteredMonsters);
+   console.log('changing the state filteredMonsters: ', filteredMonsters);
+  };
 
   return(
     <h1>return</h1>
-   /*  <div className="App">
+    /* <div className="App">
         <h1 className="app-title">Monsters Rolodex</h1>
         <SearchBox
           onChangeHandler={onSearchChange}
@@ -51,7 +55,7 @@ useEffect( () => {fetchUser()}, []);
           className = "search-box"
         ></SearchBox>
         <CardList monsters={filteredMonsters}></CardList>
-      </div> */
+      </div>  */
   )
 }
 
