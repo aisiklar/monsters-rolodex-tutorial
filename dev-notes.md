@@ -73,3 +73,12 @@ https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 * re-rendering occurs in 2 conditions (similar to class components)
   * props change
   * state changes
+
+### useEffect() Hook
+
+* a side effect!!!
+* useEffect( () => {}, [])
+  * callback function: the effect that we want to happen inside the comp.
+  * [] contains different dependencies, namely the state values or props values.
+    * when any of these values change then the callback funct will run.
+    * if [] is empty, it means that, since no dependency is put in, the callback function will run once just when the component mounts.
