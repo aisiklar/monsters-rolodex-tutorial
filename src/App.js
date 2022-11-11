@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from "react";
 //import { Component } from "react";
 import CardList from "./components/card-list/card-list.component";
 import SearchBox from "./components/search-box/search-box.component";
@@ -9,58 +9,60 @@ import SearchBox from "./components/search-box/search-box.component";
 // functional component
 
 const App = () => {
-  
-  const [monsters, setMonster] = useState([]);
+  const [monsters, setMonsters] = useState([]);
   const [filteredMonsters, setFilteredMonsters] = useState([]);
 
-  console.log('App started, monsters: ', monsters);
+  console.log("App started, monsters: ", monsters);
+
+  useEffect(() => {
+    setFilteredMonsters(monsters);
+  }, [monsters]);
+  //console.log("filteredMonsters: ", filteredMonsters);
 
   // fetch users from the api
   const fetchUser = async () => {
-    console.log('in the fetchUser() function')
+    console.log("in the fetchUser() function");
     const response = await fetch("https://jsonplaceholder.typicode.com/users");
     const users = await response.json();
-    console.log('users: ', users)
-    await setMonster(users);
-    console.log('monsters: ', monsters)
-  }
+    //console.log("users: ", users);
+    await setMonsters(users);
+    //console.log("monsters: ", monsters);
+  };
 
-useEffect( () => { fetchUser() }, []);
-  
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
   // call the fetch function if monsters is empty
   // since useEffect() is used, commenting the following script
-/*    if (monsters.length === 0){
+  /*    if (monsters.length === 0){
     console.log('in the if condition to call fetchUser()');
     fetchUser();  
   } */
- 
- 
 
- const onSearchChange = (event) => {
-     let filteredMonsters = monsters.filter((monster) =>
+  const onSearchChange = (event) => {
+    console.log('in the onSearchChange func. filteredMonsters filtered from monsters upon input from user');
+    
+    let filteredMonsters = monsters.filter((monster) =>
       monster.name.toLowerCase().includes(event.target.value.toLowerCase())
     );
-    console.log(`filteredMonsters:`, filteredMonsters);
+    //console.log(`filteredMonsters:`, filteredMonsters);
     setFilteredMonsters(filteredMonsters);
-   console.log('changing the state filteredMonsters: ', filteredMonsters);
+    //console.log("changing the state filteredMonsters: ", filteredMonsters);
   };
 
-  return(
-    <h1>return</h1>
-    /* <div className="App">
-        <h1 className="app-title">Monsters Rolodex</h1>
-        <SearchBox
-          onChangeHandler={onSearchChange}
-          placeholder="Search Monster"
-          className = "search-box"
-        ></SearchBox>
-        <CardList monsters={filteredMonsters}></CardList>
-      </div>  */
-  )
-}
-
-
-
+  return (
+    <div className="App">
+      <h1 className="app-title">Monsters Rolodex</h1>
+      <SearchBox
+        onChangeHandler={onSearchChange}
+        placeholder="Search Monster"
+        className="search-box"
+      ></SearchBox>
+      <CardList monsters={filteredMonsters}></CardList>
+    </div>
+  );
+};
 
 // class component:
 
