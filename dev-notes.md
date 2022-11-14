@@ -82,3 +82,6 @@ https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
   * [] contains different dependencies, namely the state values or props values.
     * when any of these values change then the callback funct will run.
     * if [] is empty, it means that, since no dependency is put in, the callback function will run once just when the component mounts.
+
+### strictMode
+* React 18 comes with <React.StrictMode> tag. This makes sure that every render occurs twice (to catch any weird behaviour). Chrome's react dev tools disclose the "strictmode" renders in gray color (ghost appearance).
