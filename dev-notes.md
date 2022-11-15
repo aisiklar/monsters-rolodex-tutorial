@@ -85,3 +85,16 @@ https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
 ### strictMode
 * React 18 comes with <React.StrictMode> tag. This makes sure that every render occurs twice (to catch any weird behaviour). Chrome's react dev tools disclose the "strictmode" renders in gray color (ghost appearance).
+
+### DOM and virtual DOM
+* Virtual DOM is JS representation of (real) DOM Tree.
+* how DOM changes are done:
+  * make Virtual DOM from real DOM
+  * make Virtual DOM snapshot
+  * make Virtual DOM copy
+    * make the changes
+    * compare it with the V-DOM snapshot
+  * apply the changes on the Virtual DOM snapshot
+  * apply the virtual DOM differences to real DOM
+  * when a new DOM element is first added, it causes reflow (render) of all the page.
+  * Dom paint flashing tool (under chrome dev tools / more tools / rendering)
